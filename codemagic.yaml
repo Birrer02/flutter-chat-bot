@@ -10,10 +10,10 @@ workflows:
         - google_credentials
 
     scripts:
+      - echo "📦 Installing http Package"
+      - flutter pub add http:^1.1.0  # NEU: Fügt die richtige Version von http hinzu
       - echo "📦 Running Flutter Clean"
       - flutter clean
-      - echo "📦 Running Flutter Pub Upgrade"
-      - flutter pub upgrade  # NEU: Aktualisiert die Abhängigkeiten
       - echo "📦 Running Flutter Pub Get"
       - flutter pub get
       - echo "🔧 Building APK"
