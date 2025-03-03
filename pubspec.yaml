@@ -1,5 +1,28 @@
+name: my_flutter_app
+description: Eine einfache Flutter-Anwendung.
+
+# Die Version deiner App
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"  # WICHTIG: SDK-Grenze gesetzt!
+
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.13.0 # Für HTTP-Anfragen (falls erforderlich)
-  shared_preferences: ^2.0.0 # Für die lokale Speicherung (falls erforderlich)
+
+  # Weitere Pakete
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.5
+  http: ^0.14.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
