@@ -9,12 +9,12 @@ workflows:
       groups:
         - google_credentials # Stelle sicher, dass diese Env-Var existiert
 
-    working_directory: app  # <<< Wichtig: Damit Codemagic im richtigen Ordner arbeitet!
+    # KEIN working_directory hier, da alles im Root ist!
 
     scripts:
       - echo "📂 Aktuelles Verzeichnis anzeigen"
       - pwd  # Zeigt das aktuelle Verzeichnis an
-      - echo "📄 Vorhandene Dateien anzeigen"
+      - echo "📄 Dateien anzeigen"
       - ls -la  # Zeigt, ob pubspec.yaml existiert
       - echo "📦 Prüfen, ob pubspec.yaml existiert"
       - if [ ! -f "pubspec.yaml" ]; then echo "❌ ERROR: pubspec.yaml nicht gefunden!"; exit 1; fi
