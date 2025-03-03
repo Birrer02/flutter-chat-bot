@@ -5,28 +5,22 @@ workflows:
     environment:
       flutter: stable
       vars:
-        PACKAGE_NAME: "com.example.myapp" # Ersetze mit deinem Paketnamen
+        PACKAGE_NAME: "com.example.myapp"
       groups:
-        - google_credentials # Stelle sicher, dass diese Env-Var existiert
-
-    # KEIN working_directory hier, da alles im Root ist!
+        - google_credentials
 
     scripts:
-      - echo "📂 Aktuelles Verzeichnis anzeigen"
-      - pwd  # Zeigt das aktuelle Verzeichnis an
-      - echo "📄 Dateien anzeigen"
-      - ls -la  # Zeigt, ob pubspec.yaml existiert
-      - echo "📦 Prüfen, ob pubspec.yaml existiert"
-      - if [ ! -f "pubspec.yaml" ]; then echo "❌ ERROR: pubspec.yaml nicht gefunden!"; exit 1; fi
       - echo "📦 Running Flutter Clean"
       - flutter clean
+      - echo "📦 Running Flutter Pub Upgrade"
+      - flutter pub upgrade  # NEU: Aktualisiert die Abhängigkeiten
       - echo "📦 Running Flutter Pub Get"
       - flutter pub get
       - echo "🔧 Building APK"
       - flutter build apk --release
 
     artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk  # Exakter Pfad zur APK-Datei
+      - build/app/outputs/flutter-apk/app-release.apk
 
     publishing:
       android:
