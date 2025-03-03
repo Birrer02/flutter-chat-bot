@@ -1,17 +1,5 @@
-name: flutter_chat_bot
-description: Ein einfacher Chat-Bot entwickelt mit Flutter.
-
-environment:
-  sdk: ">=3.0.0 <4.0.0"
-
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
-flutter:
-  uses-material-design: true
+  http: ^0.13.0 # Für HTTP-Anfragen (falls erforderlich)
+  shared_preferences: ^2.0.0 # Für die lokale Speicherung (falls erforderlich)
