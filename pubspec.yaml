@@ -1,20 +1,17 @@
 name: my_flutter_app
 description: Eine einfache Flutter-Anwendung.
 
-# Die Version deiner App
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"  # WICHTIG: SDK-Grenze gesetzt!
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0 <4.0.0"  # Stellt sicher, dass die Flutter SDK kompatibel ist
 
 dependencies:
   flutter:
     sdk: flutter
-
-  # Weitere Pakete
-  cupertino_icons: ^1.0.2
-  provider: ^6.0.5
-  http: ^0.14.0
+  http: ^1.1.0  # Aktualisierte Version der http-Bibliothek
+  cupertino_icons: ^1.0.2  # Falls benötigt
 
 dev_dependencies:
   flutter_test:
@@ -22,7 +19,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-  assets:
-    - assets/images/
-    - assets/icons/
