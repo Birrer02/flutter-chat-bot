@@ -1,0 +1,31 @@
+workflows:
+  android-release:
+    name: Android Release Build
+    max_build_duration: 120
+    environment:
+      flutter: stable
+      vars:
+        PACKAGE_NAME: "com.example.myapp" # Ersetze mit deinem echten Paketnamen
+      groups:
+        - google_credentials # Stelle sicher, dass dieser Environment-Variable korrekt gesetzt ist
+    android_signing:
+      keystore_path: $CM_KEYSTORE_PATH
+      keystore_password: $CM_KEYSTORE_PASSWORD
+      key_alias: $CM_KEY_ALIAS
+      key_password: $CM_KEY_PASSWORD
+    scripts:
+      - echo "📦 Running Flutter Clean"
+      - flutter clean
+      - echo "📦 Running Flutter Pub Get"
+      - flutter pub get
+      - echo "🚀 Building Release APK"
+      - flutter build apk --release
+      - echo "🚀 Building Release AAB"
+      - flutter build appbundle --release
+    artifacts:
+      - build/*/outputs//.apk
+      - build/*/outputs//.aab
+    publishing:
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
